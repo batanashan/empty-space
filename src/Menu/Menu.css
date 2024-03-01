@@ -1,0 +1,13 @@
+.menu{
+ text-align: right;
+ background-color: aqua;
+}
+.menu>li{
+    list-style-type: none;
+    display: inline;
+   font-size: 20px;
+    margin:25px;
+    letter-spacing: 5px;
+    line-height: 45px;
+    cursor: pointer;
+}
