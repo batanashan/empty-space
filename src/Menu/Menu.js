@@ -7,6 +7,7 @@ import Contact from '../RoutingComponents/Contact/Contact'
 const Menu = () => {
   const [isShow,setIsShow] = useState(document.body.clientWidth>700 ?false : true)
   const [left,setLeft] = useState(-150)
+  const [clr,setClr] =useState("home")
 
   const fnResize =() =>{
     if(document.body.clientWidth<700){
@@ -22,9 +23,10 @@ const Menu = () => {
            }
 
            const fnMenuClick = (eve)=>{
+            const {id} =eve.target
             eve.stopPropagation()
             setLeft(-150)
-            
+            setClr(id)
            }
 
   return (
@@ -38,9 +40,9 @@ const Menu = () => {
       </button>
 }
     <ul style ={{left}}  className={`${isShow? 'mobile-menu' : 'menu' }`}>
-        <li ><Link to="/home" onClick={fnMenuClick}>Home</Link></li>
-        <li><Link to="/contact"  onClick={fnMenuClick}>Contact</Link></li>
-        <li><Link to="about"  onClick={fnMenuClick}>About</Link></li>
+        <li ><Link to="/home" id="home" className={`${clr==="home"?'menuItem':''}`} onClick={fnMenuClick}>Home</Link></li>
+        <li><Link to="/contact" id="contact" className={`${clr==="contact"?'menuItem':''}`}  onClick={fnMenuClick}>Contact</Link></li>
+        <li><Link to="about"   id= "about"   className={`${clr==="about"?'menuItem':''}`} onClick={fnMenuClick}>About</Link></li>
     </ul>
 <Routes>
 <Route path="/home" element={<Home/>}></Route>

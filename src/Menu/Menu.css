@@ -41,3 +41,7 @@
     font-size: 20px;
     letter-spacing: 3px;
 }
+.menuItem{
+    color:red;
+    font-weight: bold;
+}
